@@ -6,9 +6,17 @@ defmodule SfFoodTrucksWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "Where should we eat"
   end
 
+  test "GET /735318", %{conn: conn} do
+    conn = get(conn, "/735318")
+    assert html_response(conn, 200) =~ "Ziaurehman Amini"
+  end
+
   test "gets a restaruant from a provided csv" do
     testfile = "../../../test/sf_food_trucks_web/controllers/test_restaurant.csv"
-    assert SfFoodTrucksWeb.PageController.get_restaurant(testfile) ==
-       %{ name: "Ziaurehman Amini", address: "5 THE EMBARCADERO" }
+    restaurant = testfile
+    |> SfFoodTrucksWeb.PageController.load_csv
+    |> SfFoodTrucksWeb.PageController.get_restaurant
+    assert restaurant ==
+       %{id: "735318", name: "Ziaurehman Amini", address: "5 THE EMBARCADERO", description: "MARKET ST: DRUMM ST intersection" }
   end
 end
