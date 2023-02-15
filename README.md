@@ -1,7 +1,7 @@
 # SfFoodTrucks
 
 ## Goal
-To provide a random food truck selection, to make decisions easier. 
+To provide a random food truck selection, makeing decisions easier by removing the human element.
 
 ## Technical decisions
 1) This app currently reads a csv and does filtering at the controller level.  This could be improved by adding a database,
