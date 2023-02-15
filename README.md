@@ -10,7 +10,7 @@ but for the purposes of this exercise I thought reading a csv would suffice.
 I made the assumption that the location descriptions are grouped by distance to other food trucks, because in Boston there are
 several hubs of food trucks.  Grouping by Address did not usually give any overlap between truck locations.  These could be 
 deduped, but I thought maybe it would be useful to see how many options are at a location.
-2) Tests can be run with `mix test`, although there are only happy path tests at the moment.
+2) Tests can be run with `mix test`, although there are only happy path tests at the moment.  I would rather have 
 3) Layout is very basic becuase I didn't want to risk accidentally spending hours wrestling with css.
 
 
