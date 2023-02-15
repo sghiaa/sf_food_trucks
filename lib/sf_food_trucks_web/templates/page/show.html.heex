@@ -1,0 +1,23 @@
+<section class="phx-hero">
+  <h1><%= gettext "Where should we eat?" %></h1>
+  <div>Restaurant: <%= @restaurant[:name] %></div>
+  <div>Address: <%= @restaurant[:address] %></div>
+
+  <div>
+    <div>this food truck is also in these locations</div>
+    <ul>
+      <%= for location <- @all_locations do %>
+        <li><%= link location.address, to: "/#{location.id}" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <div>Other trucks at this location:</div>
+    <ul>
+      <%= for truck <- @other_trucks do %>
+        <li><%= link truck.name, to: "/#{truck.id}" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <a href="/">I'm not feeling it today...</a>
+</section>
