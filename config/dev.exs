@@ -26,7 +26,13 @@ config :sf_food_trucks, SfFoodTrucksWeb.Endpoint,
   secret_key_base: "V/HYU9WSxI962tbliP1ytvt26CMC4WwZ2gtS90EXlmbOy984UBi8btrGUG+zL0zH",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
+
   ]
 
 # ## SSL Support

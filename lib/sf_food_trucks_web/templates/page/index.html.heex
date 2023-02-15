@@ -1,23 +1,30 @@
-<section class="phx-hero">
-  <h1><%= gettext "Where should we eat?" %></h1>
-  <div>Restaurant: <%= @restaurant[:name] %></div>
-  <div>Address: <%= @restaurant[:address] %></div>
-
-  <div>
-    <div>this food truck is also in these locations</div>
-    <ul>
-      <%= for location <- @all_locations do %>
-        <li><%= link location.address, to: "/#{location.id}" %></li>
-      <% end %>
-    </ul>
+<section>
+  <div class="container ">
+    <div class="restaurant-choice row mb-4 p-4">
+      <h1 class="col-xs-12"><%= gettext "Where should we eat?" %></h1>
+      <div class="col-xs-12 offset-xs-2">Restaurant: <%= @restaurant[:name] %></div>
+      <div class="col-xs-12 offset-xs-2">Address: <%= @restaurant[:address] %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 offset-sm-1 other-locations">
+        <div class="p-4">this food truck is also in these locations</div>
+        <ul>
+          <%= for location <- @all_locations do %>
+            <li><%= link location.address, to: "/#{location.id}" %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-sm-4 offset-sm-1 col-xs-12 other-trucks">
+        <div class="p-4">Other trucks at this location:</div>
+        <ul>
+          <%= for truck <- @other_trucks do %>
+            <li><%= link truck.name, to: "/#{truck.id}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row footer">
+      <a href="/">I'm not feeling it today...</a>
+    </div>
   </div>
-  <div>
-    <div>Other trucks at this location:</div>
-    <ul>
-      <%= for truck <- @other_trucks do %>
-        <li><%= link truck.name, to: "/#{truck.id}" %></li>
-      <% end %>
-    </ul>
-  </div>
-  <a href="/">I'm not feeling it today...</a>
 </section>

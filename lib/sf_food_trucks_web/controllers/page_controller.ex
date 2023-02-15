@@ -34,7 +34,7 @@ defmodule SfFoodTrucksWeb.PageController do
     |> Enum.to_list
     |> List.first
 
-    [desc, _] = location["LocationDescription"]
+    [desc | _] = location["LocationDescription"]
     |> String.split(":")
 
     data
@@ -74,6 +74,6 @@ defmodule SfFoodTrucksWeb.PageController do
 
     rs = data
         |> all_locations(r[:name])
-    render(conn, "show.html", restaurant: r, all_locations: rs, other_trucks: os)
+    render(conn, "index.html", restaurant: r, all_locations: rs, other_trucks: os)
   end
 end
